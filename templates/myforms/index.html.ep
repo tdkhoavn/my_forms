@@ -1,0 +1,95 @@
+% layout 'default';
+
+<section class="py-8">
+    <div class="w-full border max-w-sm mx-auto">
+        %= form_for login => begin
+        <h3 class="text-2xl text-center mb-6 font-heading"> Login Form </h3>
+        <div class="mb-4 ml-2 mr-2">
+            %= label_for username => 'Username:'
+            %= text_field 'username', id => 'username', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+        <div class="mb-4 ml-2 mr-2">
+            %= label_for password => 'Password:'
+            %= password_field 'password', id => "password", class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+        <div class="mb-4 ml-2 mr-2">
+            %= check_box 'keep_login', id => "keep_login"
+            Keep me login
+        </div>
+        <div class="mb-6 ml-2 mr-2">
+            %= submit_button 'Login', class => 'inline-block w-full py-4 px-8 leading-none text-white bg-teal-500 hover:bg-teal-600 rounded shadow'
+        </div>
+        % end
+    </div>
+
+    <!-- TextArea Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= text_area 'message', placeholder => 'Write to Us...', rows => 8, class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+            %= submit_button 'Submit', name => 'btnSubmit', class => 'inline-block w-full py-4 px-8 leading-none text-white bg-teal-500 hover:bg-teal-600 rounded shadow'
+        </div>
+    </div>
+
+    <!-- Radio Button Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            Have you uploaded the CV?
+            %= radio_button cv => 'yes'
+            Yes
+            %= radio_button cv => 'no', checked => undef
+            No
+        </div>
+    </div>
+
+    <!-- Select Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= select_field language => ['-- Select --', 'Perl', 'Python', 'PHP'], class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= select_field language => [c(Languages => ['Perl5', 'Perl7', 'Raku']), c(Frameworks => ['Mojolicious', 'Catalyst', 'Bailador'])], class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+    </div>
+
+    <!-- Date Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= label_for 'start_date' => 'Start Date:'
+            %= date_field id => 'start_date', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+            %= label_for 'end_date' => 'End Date:'
+            %= date_field id => 'end_date', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+    </div>
+
+    <!-- Datetime Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= label_for 'start_date' => 'Start Date:'
+            %= datetime_field id => 'start_date', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+            %= label_for 'end_date' => 'End Date:'
+            %= datetime_field id => 'end_date', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+        </div>
+    </div>
+
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            <!-- Hidden Field -->
+            %= hidden_field role => "admin", id => "user_role"
+
+            <!-- Nuber Field -->
+            %= number_field 'marks' => 40, min => 0, max => 100, class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+
+            <!-- Range Field -->
+            %= range_field 'marks' => 40, min => 0, max => 100, step => 5
+
+        </div>
+    </div>
+
+    <!-- File input Field -->
+    <div class="w-full max-w-sm  mx-auto">
+        <div class="mb-8 ml-2 mr-2 mt-2">
+            %= file_field 'resume', id => 'upload_file', class => 'appearance-none block w-full py-3 px-4 leading-tight text-gray-700 focus:bg-white border border-gray-200 focus:border-gray-500 rounded focus:outline-none'
+            %= submit_button 'Upload', class => 'inline-block w-full py-4 px-8 leading-none text-white bg-teal-500 hover:bg-teal-600 rounded shadow'
+        </div>
+    </div>
+</section>
